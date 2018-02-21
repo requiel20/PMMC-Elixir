@@ -1,0 +1,41 @@
+PAXOS TUPLES
+
+MESSAGES
+
+    Message = {:message, {src}}
+
+    InitialConfigMessage = {:initialConfig, config}
+
+    ClientRequestMessage = {:client_request, serverNum}
+
+    P1aMessage = {:p1a, {src, ballotNumber}}
+
+    P1bMessage = {:p1b, {src, ballotNumber, accepted}}
+
+    P2aMessage = {:p2a, {src, ballotNumber, slotNumber, command}}
+
+    P2bMessage = {:p2b, {src, ballotNumber, slotNumber}}
+
+    PreemptedMessage = {:preempted, {src, ballotNumber}}
+
+    AdoptedMessage = {:adopted, {src, ballotNumber, accepted}}
+
+    DecisionMessage = {:decision, {src, slotNumber, command}}
+
+    RequestMessage = {:request, {src, command}}
+
+    ProposeMessage = {:propose, {src, slotNumber, command}}
+
+COMMANDS
+
+    Command = {:command, {client, requestId, transaction}}
+
+    ReconfigCommand = {:reconfigCommand, {client, requestId, config}}
+
+MISC
+
+    Config = {replicas, acceptors, leaders}
+
+    BallotNumber = {round, leaderId}
+
+    Pvalue = {ballotNumber, slotNumber, command}
